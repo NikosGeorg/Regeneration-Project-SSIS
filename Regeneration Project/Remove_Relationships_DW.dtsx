@@ -11,8 +11,8 @@
   DTS:LocaleID="1032"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="2"
-  DTS:VersionGUID="{B03D86D6-756F-4CEA-B063-96F012AD0DA4}">
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{8A7CFEF1-E4DD-4BB5-8478-7ABFE64E2840}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -45,7 +45,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{FC042D55-DE31-4D34-AFA3-EF6AF5FC240D}"
-          SQLTask:SqlStatementSource="use ChinookDWSSIS&#xA;&#xA;ALTER TABLE FactSales drop  constraint [FactSalesDimDate];&#xA;&#xA;ALTER TABLE FactSales drop  constraint [FactSalesDimCustomers];&#xA;&#xA;ALTER TABLE FactSales drop  constraint [FactSalesDimTracks];&#xA;&#xA;--ALTER TABLE FactSales drop  constraint [FactSalesDimPlaylists];&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="use ChinookDWSSIS&#xA;&#xA;ALTER TABLE FactSales drop  constraint [FactSalesDimDate];&#xA;&#xA;ALTER TABLE FactSales drop  constraint [FactSalesDimCustomers];&#xA;&#xA;ALTER TABLE FactSales drop  constraint [FactSalesDimTracks];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>

@@ -11,8 +11,8 @@
   DTS:LocaleID="1032"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="4"
-  DTS:VersionGUID="{D7890C5A-6D7D-4F0F-9BC3-9CA4F20E0BCE}">
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{80BB0495-97CC-4688-8452-89D97DCE5AEB}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -45,7 +45,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{6946AFD7-462F-468F-9D54-6591785F6DEE}"
-          SQLTask:SqlStatementSource="use ChinookDWSSIS&#xA;&#xA;ALTER TABLE FactSales ADD  constraint [FactSalesDimDate] FOREIGN KEY (InvoiceDateKey)&#xA;    REFERENCES DimDate(DateKey);&#xA;&#xA;ALTER TABLE FactSales ADD  constraint [FactSalesDimCustomers]  FOREIGN KEY (CustomerKey)&#xA;    REFERENCES DimCustomers (CustomerKey);&#xA;&#xA;ALTER TABLE FactSales ADD  constraint [FactSalesDimTracks] FOREIGN KEY (TrackKey)&#xA;    REFERENCES DimTracks (TrackKey);&#xA;&#xA;--ALTER TABLE FactSales ADD constraint --[FactSalesDimPlaylists] FOREIGN KEY (PlaylistKey)&#xA;--    REFERENCES DimPlaylists(PlaylistKey);&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="use ChinookDWSSIS&#xA;&#xA;ALTER TABLE FactSales ADD  constraint [FactSalesDimDate] FOREIGN KEY (InvoiceDateKey)&#xA;    REFERENCES DimDate(DateKey);&#xA;&#xA;ALTER TABLE FactSales ADD  constraint [FactSalesDimCustomers]  FOREIGN KEY (CustomerKey)&#xA;    REFERENCES DimCustomers (CustomerKey);&#xA;&#xA;ALTER TABLE FactSales ADD  constraint [FactSalesDimTracks] FOREIGN KEY (TrackKey)&#xA;    REFERENCES DimTracks (TrackKey);" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>

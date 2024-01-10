@@ -11,8 +11,8 @@
   DTS:LocaleID="1032"
   DTS:ObjectName="Load_DW"
   DTS:PackageType="5"
-  DTS:VersionBuild="48"
-  DTS:VersionGUID="{E936994D-C6BD-41B5-864A-A15F009A43FB}">
+  DTS:VersionBuild="49"
+  DTS:VersionGUID="{60E3AD2F-4967-4F0C-81F9-79F15C0ACF07}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -744,336 +744,6 @@
               endId="Package\Load DimCustomers\Create FullName.Inputs[Derived Column Input]"
               name="OLE DB Source Output"
               startId="Package\Load DimCustomers\CustomersStagingSSIS.Outputs[OLE DB Source Output]" />
-          </paths>
-        </pipeline>
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\Load DimPlaylists"
-      DTS:CreationName="Microsoft.Pipeline"
-      DTS:DelayValidation="True"
-      DTS:Description="Data Flow Task"
-      DTS:DTSID="{f618b573-d89d-42ba-9d03-6d6173313af7}"
-      DTS:ExecutableType="Microsoft.Pipeline"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Load DimPlaylists"
-      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <pipeline
-          version="1">
-          <components>
-            <component
-              refId="Package\Load DimPlaylists\DimPlaylistsDWSSIS"
-              componentClassID="Microsoft.OLEDBDestination"
-              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
-              description="OLE DB Destination"
-              name="DimPlaylistsDWSSIS"
-              usesDispositions="true"
-              version="4">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[DimPlaylists]</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the name of the database object used to open a rowset."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1253</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Forces the use of the DefaultCodePage property value when describing character data."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the mode used to access the database."
-                  name="AccessMode"
-                  typeConverter="AccessMode">0</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepIdentity">false</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepNulls">false</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                  name="FastLoadOptions"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
-                  name="FastLoadMaxInsertCommitSize">2147483647</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Load DimPlaylists\DimPlaylistsDWSSIS.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DELL5570.ChinookDWSSIS]"
-                  connectionManagerRefId="Package.ConnectionManagers[DELL5570.ChinookDWSSIS]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\Load DimPlaylists\DimPlaylistsDWSSIS.Inputs[OLE DB Destination Input]"
-                  errorOrTruncationOperation="Insert"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="OLE DB Destination Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Load DimPlaylists\DimPlaylistsDWSSIS.Inputs[OLE DB Destination Input].Columns[PlaylistId]"
-                      cachedDataType="i4"
-                      cachedName="PlaylistId"
-                      externalMetadataColumnId="Package\Load DimPlaylists\DimPlaylistsDWSSIS.Inputs[OLE DB Destination Input].ExternalColumns[PlaylistId]"
-                      lineageId="Package\Load DimPlaylists\PlaylistsStagingSSIS.Outputs[OLE DB Source Output].Columns[PlaylistId]" />
-                    <inputColumn
-                      refId="Package\Load DimPlaylists\DimPlaylistsDWSSIS.Inputs[OLE DB Destination Input].Columns[TrackId]"
-                      cachedDataType="i4"
-                      cachedName="TrackId"
-                      externalMetadataColumnId="Package\Load DimPlaylists\DimPlaylistsDWSSIS.Inputs[OLE DB Destination Input].ExternalColumns[TrackId]"
-                      lineageId="Package\Load DimPlaylists\PlaylistsStagingSSIS.Outputs[OLE DB Source Output].Columns[TrackId]" />
-                    <inputColumn
-                      refId="Package\Load DimPlaylists\DimPlaylistsDWSSIS.Inputs[OLE DB Destination Input].Columns[PlaylistName]"
-                      cachedDataType="wstr"
-                      cachedLength="120"
-                      cachedName="PlaylistName"
-                      externalMetadataColumnId="Package\Load DimPlaylists\DimPlaylistsDWSSIS.Inputs[OLE DB Destination Input].ExternalColumns[PlaylistName]"
-                      lineageId="Package\Load DimPlaylists\PlaylistsStagingSSIS.Outputs[OLE DB Source Output].Columns[PlaylistName]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Load DimPlaylists\DimPlaylistsDWSSIS.Inputs[OLE DB Destination Input].ExternalColumns[PlaylistKey]"
-                      dataType="i4"
-                      name="PlaylistKey" />
-                    <externalMetadataColumn
-                      refId="Package\Load DimPlaylists\DimPlaylistsDWSSIS.Inputs[OLE DB Destination Input].ExternalColumns[PlaylistId]"
-                      dataType="i4"
-                      name="PlaylistId" />
-                    <externalMetadataColumn
-                      refId="Package\Load DimPlaylists\DimPlaylistsDWSSIS.Inputs[OLE DB Destination Input].ExternalColumns[TrackId]"
-                      dataType="i4"
-                      name="TrackId" />
-                    <externalMetadataColumn
-                      refId="Package\Load DimPlaylists\DimPlaylistsDWSSIS.Inputs[OLE DB Destination Input].ExternalColumns[PlaylistName]"
-                      dataType="wstr"
-                      length="120"
-                      name="PlaylistName" />
-                    <externalMetadataColumn
-                      refId="Package\Load DimPlaylists\DimPlaylistsDWSSIS.Inputs[OLE DB Destination Input].ExternalColumns[RowIsCurrent]"
-                      dataType="i4"
-                      name="RowIsCurrent" />
-                    <externalMetadataColumn
-                      refId="Package\Load DimPlaylists\DimPlaylistsDWSSIS.Inputs[OLE DB Destination Input].ExternalColumns[RowStartDate]"
-                      dataType="wstr"
-                      length="10"
-                      name="RowStartDate" />
-                    <externalMetadataColumn
-                      refId="Package\Load DimPlaylists\DimPlaylistsDWSSIS.Inputs[OLE DB Destination Input].ExternalColumns[RowEndDate]"
-                      dataType="wstr"
-                      length="10"
-                      name="RowEndDate" />
-                    <externalMetadataColumn
-                      refId="Package\Load DimPlaylists\DimPlaylistsDWSSIS.Inputs[OLE DB Destination Input].ExternalColumns[RowChangeReason]"
-                      codePage="1253"
-                      dataType="str"
-                      length="200"
-                      name="RowChangeReason" />
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Load DimPlaylists\DimPlaylistsDWSSIS.Outputs[OLE DB Destination Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\Load DimPlaylists\DimPlaylistsDWSSIS.Inputs[OLE DB Destination Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Load DimPlaylists\DimPlaylistsDWSSIS.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Load DimPlaylists\DimPlaylistsDWSSIS.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Load DimPlaylists\DimPlaylistsDWSSIS.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Load DimPlaylists\DimPlaylistsDWSSIS.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Load DimPlaylists\PlaylistsStagingSSIS"
-              componentClassID="Microsoft.OLEDBSource"
-              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
-              description="OLE DB Source"
-              name="PlaylistsStagingSSIS"
-              usesDispositions="true"
-              version="7">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[Playlists]</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the name of the database object used to open a rowset."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
-                <property
-                  dataType="System.String"
-                  description="The variable that contains the SQL command to be executed."
-                  name="SqlCommandVariable"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1253</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Forces the use of the DefaultCodePage property value when describing character data."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the mode used to access the database."
-                  name="AccessMode"
-                  typeConverter="AccessMode">0</property>
-                <property
-                  dataType="System.String"
-                  description="The mappings between the parameters in the SQL command and variables."
-                  name="ParameterMapping"></property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Load DimPlaylists\PlaylistsStagingSSIS.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DELL5570.ChinookStagingSSIS]"
-                  connectionManagerRefId="Package.ConnectionManagers[DELL5570.ChinookStagingSSIS]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <outputs>
-                <output
-                  refId="Package\Load DimPlaylists\PlaylistsStagingSSIS.Outputs[OLE DB Source Output]"
-                  name="OLE DB Source Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Load DimPlaylists\PlaylistsStagingSSIS.Outputs[OLE DB Source Output].Columns[PlaylistId]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load DimPlaylists\PlaylistsStagingSSIS.Outputs[OLE DB Source Output].ExternalColumns[PlaylistId]"
-                      lineageId="Package\Load DimPlaylists\PlaylistsStagingSSIS.Outputs[OLE DB Source Output].Columns[PlaylistId]"
-                      name="PlaylistId"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Load DimPlaylists\PlaylistsStagingSSIS.Outputs[OLE DB Source Output].Columns[TrackId]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load DimPlaylists\PlaylistsStagingSSIS.Outputs[OLE DB Source Output].ExternalColumns[TrackId]"
-                      lineageId="Package\Load DimPlaylists\PlaylistsStagingSSIS.Outputs[OLE DB Source Output].Columns[TrackId]"
-                      name="TrackId"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Load DimPlaylists\PlaylistsStagingSSIS.Outputs[OLE DB Source Output].Columns[PlaylistName]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load DimPlaylists\PlaylistsStagingSSIS.Outputs[OLE DB Source Output].ExternalColumns[PlaylistName]"
-                      length="120"
-                      lineageId="Package\Load DimPlaylists\PlaylistsStagingSSIS.Outputs[OLE DB Source Output].Columns[PlaylistName]"
-                      name="PlaylistName"
-                      truncationRowDisposition="FailComponent" />
-                  </outputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Load DimPlaylists\PlaylistsStagingSSIS.Outputs[OLE DB Source Output].ExternalColumns[PlaylistId]"
-                      dataType="i4"
-                      name="PlaylistId" />
-                    <externalMetadataColumn
-                      refId="Package\Load DimPlaylists\PlaylistsStagingSSIS.Outputs[OLE DB Source Output].ExternalColumns[TrackId]"
-                      dataType="i4"
-                      name="TrackId" />
-                    <externalMetadataColumn
-                      refId="Package\Load DimPlaylists\PlaylistsStagingSSIS.Outputs[OLE DB Source Output].ExternalColumns[PlaylistName]"
-                      dataType="wstr"
-                      length="120"
-                      name="PlaylistName" />
-                  </externalMetadataColumns>
-                </output>
-                <output
-                  refId="Package\Load DimPlaylists\PlaylistsStagingSSIS.Outputs[OLE DB Source Error Output]"
-                  isErrorOut="true"
-                  name="OLE DB Source Error Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Load DimPlaylists\PlaylistsStagingSSIS.Outputs[OLE DB Source Error Output].Columns[PlaylistId]"
-                      dataType="i4"
-                      lineageId="Package\Load DimPlaylists\PlaylistsStagingSSIS.Outputs[OLE DB Source Error Output].Columns[PlaylistId]"
-                      name="PlaylistId" />
-                    <outputColumn
-                      refId="Package\Load DimPlaylists\PlaylistsStagingSSIS.Outputs[OLE DB Source Error Output].Columns[TrackId]"
-                      dataType="i4"
-                      lineageId="Package\Load DimPlaylists\PlaylistsStagingSSIS.Outputs[OLE DB Source Error Output].Columns[TrackId]"
-                      name="TrackId" />
-                    <outputColumn
-                      refId="Package\Load DimPlaylists\PlaylistsStagingSSIS.Outputs[OLE DB Source Error Output].Columns[PlaylistName]"
-                      dataType="wstr"
-                      length="120"
-                      lineageId="Package\Load DimPlaylists\PlaylistsStagingSSIS.Outputs[OLE DB Source Error Output].Columns[PlaylistName]"
-                      name="PlaylistName" />
-                    <outputColumn
-                      refId="Package\Load DimPlaylists\PlaylistsStagingSSIS.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Load DimPlaylists\PlaylistsStagingSSIS.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Load DimPlaylists\PlaylistsStagingSSIS.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Load DimPlaylists\PlaylistsStagingSSIS.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-          </components>
-          <paths>
-            <path
-              refId="Package\Load DimPlaylists.Paths[OLE DB Source Output]"
-              endId="Package\Load DimPlaylists\DimPlaylistsDWSSIS.Inputs[OLE DB Destination Input]"
-              name="OLE DB Source Output"
-              startId="Package\Load DimPlaylists\PlaylistsStagingSSIS.Outputs[OLE DB Source Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -2379,8 +2049,7 @@ where [refTable].[TrackId] = ?</property>
       DTS:From="Package\Create DW Tables"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
-      DTS:To="Package\Create DimDate"
-      DTS:Value="2" />
+      DTS:To="Package\Create DimDate" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
       DTS:CreationName=""
@@ -2401,20 +2070,12 @@ where [refTable].[TrackId] = ?</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
       DTS:CreationName=""
-      DTS:DTSID="{D2C79719-BA83-4857-89CE-DCCF1E3EDA65}"
-      DTS:From="Package\Load DimPlaylists"
+      DTS:DTSID="{B2E967D7-0468-478A-889B-F2CD8A9FCBF9}"
+      DTS:From="Package\Load DimTracks"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 3"
       DTS:To="Package\Load FactSales"
       DTS:Value="2" />
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Constraint 7]"
-      DTS:CreationName=""
-      DTS:DTSID="{274448d6-ed5c-4481-bd85-e792fa8512f2}"
-      DTS:From="Package\Load DimTracks"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Constraint 7"
-      DTS:To="Package\Load DimPlaylists" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -2431,48 +2092,22 @@ where [refTable].[TrackId] = ?</property>
         <NodeLayout
           Size="163.2,41.6"
           Id="Package\Create DW Tables"
-          TopLeft="4.42857137839371,5.49999999999999" />
+          TopLeft="22.2857142735499,5.49999999999999" />
         <NodeLayout
           Size="172.8,41.6"
           Id="Package\Load DimCustomers"
-          TopLeft="6.57142852581302,137.794117531098" />
+          TopLeft="24.4285714209692,137.794117531098" />
         <NodeLayout
           Size="153.6,41.6"
           Id="Package\Load DimTracks"
-          TopLeft="10.1428571048438,204.323529237489" />
-        <NodeLayout
-          Size="160,41.6"
-          Id="Package\Load DimPlaylists"
-          TopLeft="8.71428567323153,269.323529180513" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 7]"
-          TopLeft="87.8285713890377,245.923529237489">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,23.399999943024"
-              Start="0,0"
-              End="0,15.899999943024">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,15.899999943024" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          TopLeft="28,204.323529237489" />
         <NodeLayout
           Size="152.8,41.6"
           Id="Package\Create DimDate"
-          TopLeft="11.1857148695966,73.3176469167211" />
+          TopLeft="29.0428577647528,73.3176469167211" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="90.2785716977048,114.917646916721">
+          TopLeft="108.135714592861,114.917646916721">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2496,7 +2131,7 @@ where [refTable].[TrackId] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="86.8071431239952,47.1">
+          TopLeft="104.664286019151,47.1">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2513,14 +2148,12 @@ where [refTable].[TrackId] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-25.304453125,3.55413595836055,50.60890625,11.609375"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="89.9571428153284,179.394117531098">
+          TopLeft="107.814285710485,179.394117531098">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2543,28 +2176,28 @@ where [refTable].[TrackId] = ?</property>
         <NodeLayout
           Size="148,42.4"
           Id="Package\Load FactSales"
-          TopLeft="11.1857148695967,334.564705551228" />
+          TopLeft="31.9000006279779,270.329411489886" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="86.9500002714141,310.923529180513">
+          TopLeft="105.350000313989,245.923529237489">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,23.641176370715"
+              EndConnector="0,24.4058822523967"
               Start="0,0"
-              End="0,16.141176370715">
+              End="0,16.9058822523967">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,16.141176370715" />
+                    End="0,16.9058822523967" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-25.304453125,2.26590068535748,50.60890625,11.609375"
+              BoundingBox="-25.304453125,2.64825362619834,50.60890625,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -2573,16 +2206,14 @@ where [refTable].[TrackId] = ?</property>
           ParentId="Package"
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="184.8,382.4"
-          Size="184.8,425.6"
+          PanelSize="202.4,318.4"
+          Size="202.4,361.6"
           Id="26c1ffe4-8da7-4ce7-a285-f5248df345e7"
           TopLeft="286.371428653536,5.5">
           <GroupLayout.ChildrenIds>
             <s:String>Package\Create DW Tables</s:String>
             <s:String>Package\Load DimCustomers</s:String>
             <s:String>Package\Load DimTracks</s:String>
-            <s:String>Package\Load DimPlaylists</s:String>
-            <s:String>Package.PrecedenceConstraints[Constraint 7]</s:String>
             <s:String>Package\Create DimDate</s:String>
             <s:String>Package.PrecedenceConstraints[Constraint 1]</s:String>
             <s:String>Package.PrecedenceConstraints[Constraint]</s:String>
@@ -2673,70 +2304,6 @@ where [refTable].[TrackId] = ?</property>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Load DimCustomers\DimCustomersDWSSIS">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\Load DimPlaylists">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="172.8,41.6"
-          Id="Package\Load DimPlaylists\PlaylistsStagingSSIS"
-          TopLeft="346.999994829297,27.9999995827675" />
-        <NodeLayout
-          Size="172.8,41.6"
-          Id="Package\Load DimPlaylists\DimPlaylistsDWSSIS"
-          TopLeft="348.999994799495,92.999998614192" />
-        <EdgeLayout
-          Id="Package\Load DimPlaylists.Paths[OLE DB Source Output]"
-          TopLeft="434.399994814396,69.5999995827675">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,23.3999990314245"
-              Start="0,0"
-              End="0,15.8999990314245">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,15.8999990314245" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load DimPlaylists\DimPlaylistsDWSSIS">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load DimPlaylists\PlaylistsStagingSSIS">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -2940,7 +2507,7 @@ where [refTable].[TrackId] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -2950,7 +2517,7 @@ where [refTable].[TrackId] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -2963,7 +2530,7 @@ where [refTable].[TrackId] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -2973,7 +2540,7 @@ where [refTable].[TrackId] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -2986,7 +2553,7 @@ where [refTable].[TrackId] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -2996,7 +2563,7 @@ where [refTable].[TrackId] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -3004,7 +2571,7 @@ where [refTable].[TrackId] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Load FactSales\SalesStagingSSIS">
+    design-time-name="Package\Load FactSales\FactSalesDWSSIS">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -3017,7 +2584,7 @@ where [refTable].[TrackId] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Load FactSales\FactSalesDWSSIS">
+    design-time-name="Package\Load FactSales\SalesStagingSSIS">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
