@@ -11,8 +11,8 @@
   DTS:LocaleID="1032"
   DTS:ObjectName="Load_Staging"
   DTS:PackageType="5"
-  DTS:VersionBuild="79"
-  DTS:VersionGUID="{911B066C-300F-4A5A-BD65-A56D05B097F8}">
+  DTS:VersionBuild="87"
+  DTS:VersionGUID="{DDD0A56E-49DF-40C5-B5BE-AA1320AD8FEA}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -69,7 +69,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{95AA14C6-1F6E-4BDC-823C-241F051D3EEC}"
-          SQLTask:SqlStatementSource="DROP TABLE IF EXISTS Customers&#xA;DROP TABLE IF EXISTS Sales&#xA;DROP TABLE IF EXISTS Tracks&#xA;DROP TABLE IF EXISTS Playlists&#xA;&#xA;CREATE TABLE [Customers] (&#xA;    [CustomerId] int NOT NULL,&#xA;    [CustomerFirstName] nvarchar(40) NOT NULL,&#xA;    [CustomerLastName] nvarchar(20) NOT NULL,&#xA;    [CustomerCompany] nvarchar(80) NULL,&#xA;    [CustomerCountry] nvarchar(40) NULL,&#xA;    [CustomerState] nvarchar(40) NULL,&#xA;    [CustomerCity] nvarchar(40) NULL,&#xA;    [CustomerPostalCode] nvarchar(10) NULL,&#xA;    [EmployeeFirstName] nvarchar(20) NOT NULL,&#xA;    [EmployeeLastName] nvarchar(20) NOT NULL&#xA;)&#xA;&#xA;CREATE TABLE [Sales] (&#xA;    [TrackId] int NOT NULL,&#xA;    [CustomerId] int NOT NULL,&#xA;    [InvoiceDate] datetime NOT NULL,&#xA;    [InvoiceId] int NOT NULL,&#xA;    [UnitPrice] [numeric](10, 2) NOT NULL&#xA;)&#xA;&#xA;CREATE TABLE [Tracks] (&#xA;    [TrackId] int NOT NULL,&#xA;    [TrackName] nvarchar(200) NOT NULL,&#xA;    [TrackComposer] nvarchar(220) NULL,&#xA;    [TrackMillisec] int NOT NULL,&#xA;    [AlbumTitle] nvarchar(160) NOT NULL,&#xA;    [AristName] nvarchar(120) NULL,&#xA;    [GenreName] nvarchar(120) NULL&#xA;)&#xA;&#xA;CREATE TABLE [Playlists] (&#xA;    [PlaylistId] int NOT NULL,&#xA;    [TrackId] int NOT NULL,&#xA;    [PlaylistName] nvarchar(120) NULL&#xA;)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="DROP TABLE IF EXISTS Customers&#xA;DROP TABLE IF EXISTS Sales&#xA;DROP TABLE IF EXISTS Tracks&#xA;DROP TABLE IF EXISTS Playlists&#xA;&#xA;CREATE TABLE [Customers] (&#xA;    [CustomerId] int NOT NULL,&#xA;    [CustomerFirstName] nvarchar(40) NOT NULL,&#xA;    [CustomerLastName] nvarchar(20) NOT NULL,&#xA;    [CustomerCompany] nvarchar(80) NULL,&#xA;    [CustomerCountry] nvarchar(40) NULL,&#xA;    [CustomerState] nvarchar(40) NULL,&#xA;    [CustomerCity] nvarchar(40) NULL,&#xA;    [CustomerPostalCode] nvarchar(10) NULL,&#xA;    [EmployeeFirstName] nvarchar(20) NOT NULL,&#xA;    [EmployeeLastName] nvarchar(20) NOT NULL&#xA;)&#xA;&#xA;CREATE TABLE [Sales] (&#xA;    [TrackId] int NOT NULL,&#xA;    [CustomerId] int NOT NULL,&#xA;    [InvoiceDate] datetime NOT NULL,&#xA;    [InvoiceId] int NOT NULL,&#xA;    [UnitPrice] [numeric](10, 2) NOT NULL&#xA;)&#xA;&#xA;CREATE TABLE [Tracks] (&#xA;    [TrackId] int NOT NULL,&#xA;    [TrackName] nvarchar(200) NOT NULL,&#xA;    [TrackComposer] nvarchar(220) NULL,&#xA;    [TrackMillisec] int NOT NULL,&#xA;    [AlbumTitle] nvarchar(160) NOT NULL,&#xA;    [AristName] nvarchar(120) NULL,&#xA;    [GenreName] nvarchar(120) NULL&#xA;)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -451,13 +451,6 @@
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Load Customers\CustomersStagingSSIS.Inputs[OLE DB Destination Input].Columns[CustomerId]"
-                      cachedDataType="i4"
-                      cachedName="CustomerId"
-                      cachedSortKeyPosition="1"
-                      externalMetadataColumnId="Package\Load Customers\CustomersStagingSSIS.Inputs[OLE DB Destination Input].ExternalColumns[CustomerId]"
-                      lineageId="Package\Load Customers\Sort by CustomerId.Outputs[Sort Output].Columns[CustomerId]" />
-                    <inputColumn
                       refId="Package\Load Customers\CustomersStagingSSIS.Inputs[OLE DB Destination Input].Columns[CustomerFirstName]"
                       cachedDataType="wstr"
                       cachedLength="40"
@@ -520,13 +513,16 @@
                       cachedName="EmployeeLastName"
                       externalMetadataColumnId="Package\Load Customers\CustomersStagingSSIS.Inputs[OLE DB Destination Input].ExternalColumns[EmployeeLastName]"
                       lineageId="Package\Load Customers\Sort by CustomerId.Outputs[Sort Output].Columns[EmployeeLastName]" />
+                    <inputColumn
+                      refId="Package\Load Customers\CustomersStagingSSIS.Inputs[OLE DB Destination Input].Columns[CustomerId]"
+                      cachedDataType="i4"
+                      cachedName="CustomerId"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\Load Customers\CustomersStagingSSIS.Inputs[OLE DB Destination Input].ExternalColumns[CustomerId]"
+                      lineageId="Package\Load Customers\Sort by CustomerId.Outputs[Sort Output].Columns[CustomerId]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Load Customers\CustomersStagingSSIS.Inputs[OLE DB Destination Input].ExternalColumns[CustomerId]"
-                      dataType="i4"
-                      name="CustomerId" />
                     <externalMetadataColumn
                       refId="Package\Load Customers\CustomersStagingSSIS.Inputs[OLE DB Destination Input].ExternalColumns[CustomerFirstName]"
                       dataType="wstr"
@@ -572,6 +568,10 @@
                       dataType="wstr"
                       length="20"
                       name="EmployeeLastName" />
+                    <externalMetadataColumn
+                      refId="Package\Load Customers\CustomersStagingSSIS.Inputs[OLE DB Destination Input].ExternalColumns[CustomerId]"
+                      dataType="i4"
+                      name="CustomerId" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -3699,24 +3699,24 @@ where [refTable].[GenreId] = ?</property>
                       length="220"
                       name="TrackComposer" />
                     <externalMetadataColumn
-                      refId="Package\Load Tracks\TracksStagingSSIS.Inputs[OLE DB Destination Input].ExternalColumns[TrackMillisec]"
-                      dataType="i4"
-                      name="TrackMillisec" />
-                    <externalMetadataColumn
                       refId="Package\Load Tracks\TracksStagingSSIS.Inputs[OLE DB Destination Input].ExternalColumns[AlbumTitle]"
                       dataType="wstr"
                       length="160"
                       name="AlbumTitle" />
                     <externalMetadataColumn
-                      refId="Package\Load Tracks\TracksStagingSSIS.Inputs[OLE DB Destination Input].ExternalColumns[AristName]"
-                      dataType="wstr"
-                      length="120"
-                      name="AristName" />
-                    <externalMetadataColumn
                       refId="Package\Load Tracks\TracksStagingSSIS.Inputs[OLE DB Destination Input].ExternalColumns[GenreName]"
                       dataType="wstr"
                       length="120"
                       name="GenreName" />
+                    <externalMetadataColumn
+                      refId="Package\Load Tracks\TracksStagingSSIS.Inputs[OLE DB Destination Input].ExternalColumns[TrackMillisec]"
+                      dataType="i4"
+                      name="TrackMillisec" />
+                    <externalMetadataColumn
+                      refId="Package\Load Tracks\TracksStagingSSIS.Inputs[OLE DB Destination Input].ExternalColumns[AristName]"
+                      dataType="wstr"
+                      length="120"
+                      name="AristName" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -3814,53 +3814,53 @@ where [refTable].[GenreId] = ?</property>
         <NodeLayout
           Size="181.6,41.6"
           Id="Package\Create Staging Tables"
-          TopLeft="5.5,5.5" />
+          TopLeft="5.5,7.02941176336529" />
         <NodeLayout
           Size="153.6,41.6"
           Id="Package\Load Customers"
           TopLeft="18.357142884513,71.2647058247077" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="95.7285714422565,47.1">
+          TopLeft="95.7285714422565,48.6294117633653">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,24.1647058247077"
+              EndConnector="0,22.6352940613424"
               Start="0,0"
-              End="0,16.6647058247077">
+              End="0,15.1352940613424">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,16.6647058247077" />
+                    End="0,15.1352940613424" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-25.304453125,2.52766541235385,50.60890625,11.609375"
+              BoundingBox="-25.304453125,1.76295953067121,50.60890625,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
           Size="128.8,41.6"
           Id="Package\Load Sales"
-          TopLeft="29.0714286216065,135.49999988605" />
+          TopLeft="30.500000053219,135.49999988605" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="94.3142857530598,112.864705824708">
+          TopLeft="95.028571468866,112.864705824708">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,22.6352940613421"
+              EndConnector="0,22.6352940613423"
               Start="0,0"
-              End="0,15.1352940613421">
+              End="0,15.1352940613423">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,15.1352940613421" />
+                    End="0,15.1352940613423" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3872,21 +3872,21 @@ where [refTable].[GenreId] = ?</property>
         <NodeLayout
           Size="135.2,41.6"
           Id="Package\Load Tracks"
-          TopLeft="24.1000006386212,201.2294119115" />
+          TopLeft="27.6714292176523,201.2294119115" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="92.5857146301139,177.09999988605">
+          TopLeft="95.0857146354357,177.09999988605">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,24.1294120254504"
+              EndConnector="0,24.12941202545"
               Start="0,0"
-              End="0,16.6294120254504">
+              End="0,16.62941202545">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,16.6294120254504" />
+                    End="0,16.62941202545" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3900,8 +3900,8 @@ where [refTable].[GenreId] = ?</property>
           ParentId="Package"
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="192.8,248"
-          Size="192.8,291.2"
+          PanelSize="192.8,251.2"
+          Size="192.8,294.4"
           Id="5076b54f-cbc5-4931-bf0e-dc2cb7cb6902"
           TopLeft="270.414286301209,57.4999999544202">
           <GroupLayout.ChildrenIds>
@@ -3929,7 +3929,7 @@ where [refTable].[GenreId] = ?</property>
         <NodeLayout
           Size="184.8,41.6"
           Id="Package\Load Customers\CustomersStagingSSIS"
-          TopLeft="115.000000244805,285.235293867627" />
+          TopLeft="116.000000229904,285.235293867627" />
         <NodeLayout
           Size="123.2,41.6"
           Id="Package\Load Customers\Customer"
@@ -4018,7 +4018,7 @@ where [refTable].[GenreId] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load Customers.Paths[Sort Output2]"
-          TopLeft="204.514285960611,257.247058634506">
+          TopLeft="205.01428595316,257.247058634506">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -4363,6 +4363,10 @@ where [refTable].[GenreId] = ?</property>
           Id="Package\Load Tracks\TracksStagingSSIS"
           TopLeft="293.285709222056,325.41175796932" />
         <NodeLayout
+          Size="149.6,41.6"
+          Id="Package\Load Tracks\Get ArtistName"
+          TopLeft="297.999995559454,240.99999640882" />
+        <NodeLayout
           Size="104,41.6"
           Id="Package\Load Tracks\Track"
           TopLeft="314.714285890363,22.7647057361772" />
@@ -4374,6 +4378,30 @@ where [refTable].[GenreId] = ?</property>
           Size="196,41.6"
           Id="Package\Load Tracks\Get AlbumTitle &amp; ArtistId"
           TopLeft="275.000000585403,165.999999896569" />
+        <EdgeLayout
+          Id="Package\Load Tracks.Paths[Lookup Match Output]"
+          TopLeft="369.900000047896,130.129410102324">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,35.8705897942442"
+              Start="0,0"
+              End="0,28.3705897942442">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.3705897942442" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,8.3806073971221,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Load Tracks.Paths[OLE DB Source Output]"
           TopLeft="366.757142700377,64.3647057361772">
@@ -4397,33 +4425,29 @@ where [refTable].[GenreId] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Load Tracks.Paths[Lookup Match Output]"
-          TopLeft="369.900000047896,130.129410102324">
+          Id="Package\Load Tracks.Paths[Lookup Match Output2]"
+          TopLeft="374.642852390755,282.59999640882">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,35.8705897942442"
+              EndConnector="0,42.8117615604997"
               Start="0,0"
-              End="0,28.3705897942442">
+              End="0,35.3117615604997">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,28.3705897942442" />
+                    End="0,35.3117615604997" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,8.38060739712211,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,11.8511932802498,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="149.6,41.6"
-          Id="Package\Load Tracks\Get ArtistName"
-          TopLeft="297.999995559454,240.99999640882" />
         <EdgeLayout
           Id="Package\Load Tracks.Paths[Lookup Match Output1]"
           TopLeft="372.899998072429,207.599999896569">
@@ -4445,30 +4469,6 @@ where [refTable].[GenreId] = ?</property>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
               BoundingBox="-48.19138671875,7.14531075612585,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load Tracks.Paths[Lookup Match Output2]"
-          TopLeft="374.642852390755,282.59999640882">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,42.8117615604997"
-              Start="0,0"
-              End="0,35.3117615604997">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,35.3117615604997" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,11.8511932802499,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
